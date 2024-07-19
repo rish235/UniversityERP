@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Syllabus List{% endblock %}
+
+{% block content %}
+<h1 class="mt-4">Syllabus List</h1>
+<table class="table table-striped mt-4">
+    <thead>
+        <tr>
+            <th scope="col">Course Code</th>
+            <th scope="col">Course Name</th>
+            <th scope="col">Semester</th>
+            <th scope="col">Topics</th>
+            <th scope="col">Created At</th>
+            <th scope="col">Updated At</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for syllabus in syllabi %}
+            <tr>
+                <td>{{ syllabus.course_code }}</td>
+                <td>{{ syllabus.course_name }}</td>
+                <td>{{ syllabus.semester }}</td>
+                <td>{{ syllabus.topics }}</td>
+                <td>{{ syllabus.created_at }}</td>
+                <td>{{ syllabus.updated_at }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<style>
+    body {
+        background-color: #add8e6;
+      }
+</style>
+{% endblock %}

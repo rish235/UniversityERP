@@ -1,0 +1,58 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Assignment List{% endblock %}
+
+{% block content %}
+{% load static %}
+
+    <div class="container text-center">
+      <h1>Result</h1><br>
+    <b>Student Name: {{ student.s_name }}</b>
+    <table class="table table-bordered table-hover table-striped table-sm" border="2px solid black">
+      <thead>
+      <tr>
+        <th class="custom-warning-text">Subject</th>
+        <th class="custom-warning-text">Subject Marks</th>
+        <th class="custom-warning-text">Total Marks</th>
+        <th class="custom-warning-text">Subject Score</th>
+        <th class="custom-warning-text">Subject Grade</th>
+        <th class="custom-warning-text">Subject Status</th>
+      </tr>
+    </thead>
+      {% for k,v in final_dict.items %}
+      <tr>
+        <td class="custom-warning-text">{{ k }}</td>
+      {% for j in v %}
+         <td class="custom-warning-text">{{ j }}</td>
+      {% endfor %}
+      </tr>
+      {% endfor %}
+    </table>
+    
+    <b  class="custom-warning-text">Overall Result: {{ status }}</b>
+    
+
+  </div>
+
+  <style>
+    
+    body {
+      background-color: #add8e6;
+    }
+    nav{
+      opacity: 50%;
+    }
+    tr{
+      border: 2px solid black;
+    }
+    .table td, .table th {
+      padding: 10px 20px;
+      opacity: 70%;
+    }
+    .custom-warning-text {
+      color: #000000; /* Adjust color to your preference */
+      font-weight: bold;
+  }
+  </style>
+{% endblock %}

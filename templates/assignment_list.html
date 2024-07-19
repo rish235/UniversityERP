@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Assignments{% endblock %}
+
+{% block content %}
+<h1 class="mt-4">Assignments</h1>
+<table class="table table-striped mt-4">
+    <thead>
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Due Date</th>
+            <th scope="col">Created At</th>
+            <th scope="col">Updated At</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for assignment in assignments %}
+            <tr>
+                <td>{{ assignment.title }}</td>
+                <td>{{ assignment.description }}</td>
+                <td>{{ assignment.due_date }}</td>
+                <td>{{ assignment.created_at }}</td>
+                <td>{{ assignment.updated_at }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

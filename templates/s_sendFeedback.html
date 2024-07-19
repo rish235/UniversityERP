@@ -1,0 +1,110 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container" >
+      
+    <div class="mini" style="">
+       
+    <form action="/s_submitFeedback" method="POST" >
+      {% csrf_token %}
+      <h1 >Feedback Form</h1>
+    <table border: "2px solid black;" padding="0px;">
+      <thead>
+        <tr>
+          <th>Faculty</th>
+          <th>FeedBack</th>
+        </tr>
+      </thead>
+      {% for obj in myfaculty %}
+      <tr>
+      <div class="slider-container h-10 w-10">
+        <td>{{ obj.f_name }}:
+        <input
+          type="range"
+          min="1"
+          max="5"
+          value="3"
+          id="ratingSlider-{{ obj.id }}"
+          name="feedback"
+        /></td><td>
+        <span style="font-size: 60px;" id="emoji-{{ obj.id }}"></span></td>
+        
+      </div>
+    </tr>
+      <br />
+      {% endfor %}
+    </table><br>
+    <button type="submit" class="w-10 btn btn-lg btn-primary" style="margin-left: 100px;"> Submit</button>
+  </div>
+</div>
+  </div>
+    <script>
+      const sliders = document.querySelectorAll('input[type="range"]'); // Get all sliders
+
+      function setEmoji(slider) {
+        const value = slider.value;
+        const emojiSpan = document.getElementById(
+          `emoji-${slider.id.split("-")[1]}`
+        ); // Get emoji span using slider ID
+        let emoji;
+        if (value <= 2) {
+          emoji = "☹️"; // Sad emoji
+        } else if (value <= 4) {
+          emoji = "🙂"; // Neutral emoji
+        } else {
+          emoji = "😊"; // Happy emoji
+        }
+        emojiSpan.textContent = emoji;
+      }
+
+      sliders.forEach((slider) => {
+        slider.addEventListener("input", () => setEmoji(slider));
+      });
+
+      // Set initial emoji for all sliders
+      sliders.forEach((slider) => setEmoji(slider));
+    </script>
+  </body>
+  <style>
+    form{
+      padding-top: 0px;
+    }
+    body{
+      background-image: url('https://images.unsplash.com/photo-1633613286991-611fe299c4be?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    nav{
+      opacity: 50%;
+    }
+    tr{
+      border: 2px solid black;
+    }
+    .table td, .table th {
+      
+      opacity: 70%;
+      border: 2px solid black;
+    }
+    .mini{
+      margin-left: 370px;
+      maring-top: 0px;
+    }
+  
+</html>

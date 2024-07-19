@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information</title>
+    <style>
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 18px;
+            text-align: left;
+        }
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        img {
+            width: 100px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Student Information</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>ID</th>
+                <th>Date of Birth</th>
+                <th>Course</th>
+                <th>Semester</th>
+                <th>Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for x in mystudents %}
+            <tr>
+                <td>{{ x.s_name }}</td>
+                <td>{{ x.s_id }}</td>
+                <td>{{ x.s_dob }}</td>
+                <td>{{ x.s_course }}</td>
+                <td>{{ x.s_sem }}</td>
+                <td><img src="{{ x.s_image.url }}" alt="Student Image"></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

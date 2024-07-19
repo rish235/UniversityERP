@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Information</title>
+    <style>
+        table {
+            width: 50%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 18px;
+            text-align: left;
+        }
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Faculty Information</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <td>{{ myfaculty.f_name }}</td>
+        </tr>
+        <tr>
+            <th>ID</th>
+            <td>{{ myfaculty.f_id }}</td>
+        </tr>
+        <tr>
+            <th>Date of Birth</th>
+            <td>{{ myfaculty.f_dob }}</td>
+        </tr>
+        <tr>
+            <th>Qualifications</th>
+            <td>{{ myfaculty.f_qualifications }}</td>
+        </tr>
+    </table>
+    <img src="{{ myfaculty.f_img }}" alt="Faculty Image" style="margin-top: 20px;">
+</body>
+</html>

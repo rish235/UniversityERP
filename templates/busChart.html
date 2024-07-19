@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Bus List{% endblock %}
+
+{% block content %}
+<h1 class="mt-4">Bus List</h1>
+<table class="table table-striped mt-4">
+    <thead>
+        <tr>
+            <th scope="col">Route Name</th>
+            <th scope="col">Arrival Time</th>
+            <th scope="col">Departure Time</th>
+            <th scope="col">Created At</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for bus in bus %}
+            <tr>
+                <td>{{ bus.route_name }}</td>
+                <td>{{ bus.arrival_time }}</td>
+                <td>{{ bus.departure_time }}</td>
+                <td>{{ bus.created_at }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<style>
+    body {
+        background-color: #add8e6;
+      }
+</style>
+{% endblock %}

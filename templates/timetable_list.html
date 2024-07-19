@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Timetable{% endblock %}
+
+{% block content %}
+<h1 class="mt-4">Timetable</h1>
+<table class="table table-striped mt-4">
+    <thead>
+        <tr>
+            <th scope="col">Day</th>
+            <th scope="col">Course Code</th>
+            <th scope="col">Course Name</th>
+            <th scope="col">Start Time</th>
+            <th scope="col">End Time</th>
+            <th scope="col">Instructor</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for entry in timetable %}
+            <tr>
+                <td>{{ entry.get_day_of_week_display }}</td>
+                <td>{{ entry.course_code }}</td>
+                <td>{{ entry.course_name }}</td>
+                <td>{{ entry.start_time }}</td>
+                <td>{{ entry.end_time }}</td>
+                <td>{{ entry.instructor }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<style>
+    body {
+        background-color: #add8e6;
+      }
+</style>
+{% endblock %}
